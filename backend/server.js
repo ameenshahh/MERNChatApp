@@ -1,9 +1,11 @@
 const express = require('express');
-const dotenv = require("dotenv")
+const dotenv = require("dotenv");
 const { chats } = require('./data/data.js');
+const connectDB = require('./config/db.js');
 
-const app = express();
 dotenv.config();
+connectDB();
+const app = express();
 
 app.get("/", (req, res) => {
     res.send("API is running")
